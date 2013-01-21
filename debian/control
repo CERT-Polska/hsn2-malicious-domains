@@ -1,0 +1,8 @@
+Package: hsn2-malicious-domains
+Version: {VER}
+Section: unknown
+Priority: optional
+Architecture: all
+Depends: python-pycurl
+Maintainer: Paweł Borkowski (pawel.borkowski@nask.pl)
+Description: HSN2 Malicious Domains - checks if domain is malicious
