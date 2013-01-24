@@ -1,0 +1,13 @@
+HSN2 Malicious Domains (hsn2-malicious-domains)
+
+
+The HSN 2 Malicious Domains's goal is to keep and update a list of malicious
+domains using differrent APIs (e.g. Google safebrowsing API).
+
+
+
+This repository is a part of bigger project: Honeyspider Network 2.0.
+Project bundle is located at: https://github.com/CERT-Polska/hsn2-bundle.
+More information is available on the project's website:
+http://www.honeyspider.net
+
