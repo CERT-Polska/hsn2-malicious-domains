@@ -1,7 +1,7 @@
 # Copyright (c) NASK
-# 
+#
 # This file is part of HoneySpider Network 2.0.
-# 
+#
 # This is a free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
 # the Free Software Foundation, either version 3 of the License, or
@@ -20,23 +20,19 @@ Created on Jul 12, 2012
 
 @author: pawelb
 '''
-import sys
-import re
-sys.path.append("/opt/hsn2/hsn2-malicious-domains/verifiers")
-sys.path.append("/opt/hsn2/malicious-domains/verdict")
-from mySingleCheckerVerdict import MySingleCheckerVerdict
-from VerifierAbstract import VerifierAbstract
 
-class VerifierUnknown(VerifierAbstract):
 
-	def __init__(self):
-		pass
+class MyDomainVerdict():
 
-	def verify(self, toCheck, type, config):
-		result = dict()
-		for domain in toCheck:
-			result[domain] = MySingleCheckerVerdict.UNKNOWN
-		return result
+    def __init__(self, domain):
+        self.checked_domain = domain
+        self.singleCheckerVerdict = []
 
-	def getName(self):
-		return "Unknown verifier"
+    def addSingleVerdict(self, mySingleCheckerVerdict):
+        self.singleCheckerVerdict.append(mySingleCheckerVerdict)
+
+    def getSingleVerdicts(self):
+        return self.singleCheckerVerdict
+
+    def getCheckedDomain(self):
+        return self.checked_domain

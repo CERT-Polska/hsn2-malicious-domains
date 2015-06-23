@@ -1,7 +1,7 @@
 # Copyright (c) NASK
-# 
+#
 # This file is part of HoneySpider Network 2.0.
-# 
+#
 # This is a free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
 # the Free Software Foundation, either version 3 of the License, or
@@ -21,20 +21,9 @@ Created on Jul 12, 2012
 @author: pawelb
 '''
 
-import ConfigParser
-import logging
 
-class Config():
-	config = None
-	
-	def parseConfig(self):
-		self.config = ConfigParser.ConfigParser()
-		try:
-			ret = self.config.readfp(open("/etc/hsn2/malicious-domains.conf"))
-		except IOError:
-			logging.warn("Cannot open '/etc/hsn2/malicious-domains.conf'. Exiting...")
-			sys.exit(2)
+class MyDomainVerdicts():
+    domainVerdict = []
 
-	def getConfig(self):
-		self.parseConfig()
-		return self.config
+    def __init__(self, verdict):
+        self.domainVerdict.append(verdict)
