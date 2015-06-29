@@ -17,28 +17,18 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-'''
-Created on 10-07-2012
-
-@author: pawelb
-'''
-
 import logging
 import re
-import sys
 
-from config import Config
+from hsn2_malicious_domains.config import Config
 from hsn2_malicious_domains.verdict.myDomainVerdict import MyDomainVerdict
 from hsn2_malicious_domains.verdict.mySingleCheckerVerdict import MySingleCheckerVerdict
 from hsn2_malicious_domains.verifiers.VerifierAbstract import VerifierAbstract
 from hsn2_malicious_domains.verifiers.VerifierFactory import VerifierFactory
-import hsn2objectwrapper as ow
-from hsn2osadapter import ObjectStoreException
-from hsn2taskprocessor import HSN2TaskProcessor
-from hsn2taskprocessor import ParamException
-
-
-sys.path.append("/opt/hsn2/python/commlib")
+from hsn2_commons import hsn2objectwrapper as ow
+from hsn2_commons.hsn2osadapter import ObjectStoreException
+from hsn2_commons.hsn2taskprocessor import HSN2TaskProcessor
+from hsn2_commons.hsn2taskprocessor import ParamException
 
 
 class MaliciousDomainsTaskProcessor(HSN2TaskProcessor):

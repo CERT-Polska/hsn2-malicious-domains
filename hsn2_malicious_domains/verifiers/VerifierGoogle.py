@@ -15,10 +15,11 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-from hsn2_malicious_domains.verdict.mySingleCheckerVerdict import MySingleCheckerVerdict
-from hsn2_malicious_domains.verifiers.VerifierAbstract import VerifierAbstract
 import logging
 import urllib2
+
+from hsn2_malicious_domains.verdict.mySingleCheckerVerdict import MySingleCheckerVerdict
+from hsn2_malicious_domains.verifiers.VerifierAbstract import VerifierAbstract
 
 
 class VerifierGoogle(VerifierAbstract):
@@ -39,13 +40,13 @@ class VerifierGoogle(VerifierAbstract):
             return MySingleCheckerVerdict.MALICIOUS
         return MySingleCheckerVerdict.UNKNOWN
 
-    def verify(self, toCheck, type, config):
+    def verify(self, toCheck, type_, config):
         toCheck = list(toCheck)
         result = dict()
         url = 'https://sb-ssl.google.com/safebrowsing/api/lookup?client=%s&apikey=%s&appver=1.5.2&pver=3.0' % (
             'python', config.get("verifier", "apikey"))
 
-        if type == VerifierAbstract.IP:
+        if type_ == VerifierAbstract.IP:
             for domain in toCheck:
                 result[domain] = MySingleCheckerVerdict.UNKNOWN
             return result

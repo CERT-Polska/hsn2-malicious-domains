@@ -17,7 +17,7 @@
 
 from hsn2_malicious_domains.verdict.mySingleCheckerVerdict import MySingleCheckerVerdict
 from hsn2_malicious_domains.verifiers.VerifierAbstract import VerifierAbstract
-from config import Config
+from hsn2_malicious_domains.config import Config
 
 
 class VerifierStatic(VerifierAbstract):
