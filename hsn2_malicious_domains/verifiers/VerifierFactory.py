@@ -24,10 +24,10 @@ from hsn2_malicious_domains.verifiers.VerifierUnknown import VerifierUnknown
 
 class VerifierFactory(object):
 
-    verifiersLists = {}
+    verifiersLists = None
 
     def __init__(self):
-        pass
+        self.verifiersLists = {}
 
     def getVerifier(self, name):
         if name == "unknown":
