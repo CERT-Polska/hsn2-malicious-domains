@@ -17,7 +17,8 @@
 
 
 class MyDomainVerdicts():
-    domainVerdict = []
+    domainVerdict = None
 
     def __init__(self, verdict):
+        self.domainVerdict = []
         self.domainVerdict.append(verdict)

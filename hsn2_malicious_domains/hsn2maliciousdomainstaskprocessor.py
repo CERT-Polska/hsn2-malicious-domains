@@ -35,12 +35,13 @@ class MaliciousDomainsTaskProcessor(HSN2TaskProcessor):
     parser = None
     ipRegex = re.compile(
         "[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}", re.I)
-    ipVerifiers = []
-    domainVerifiers = []
+    ipVerifiers = None
+    domainVerifiers = None
 
     def __init__(self, connector, datastore, serviceName, serviceQueue, objectStoreQueue, **extra):
-        HSN2TaskProcessor.__init__(
-            self, connector, datastore, serviceName, serviceQueue, objectStoreQueue, **extra)
+        self.ipVerifiers = []
+        self.domainVerifiers = []
+        HSN2TaskProcessor.__init__(self, connector, datastore, serviceName, serviceQueue, objectStoreQueue, **extra)
 
     def getIpList(self):
         ipMessagePath = self.dsAdapter.saveTmp(
@@ -104,7 +105,7 @@ class MaliciousDomainsTaskProcessor(HSN2TaskProcessor):
         for verifier in self.ipVerifiers:
             resultDict = verifier.verify(ipList, VerifierAbstract.IP, config)
             for key in resultDict:
-                if not result.has_key(key):
+                if key not in result:
                     result[key] = MyDomainVerdict(key)
                 result[key].addSingleVerdict(
                     MySingleCheckerVerdict(verifier.getName(), resultDict[key]))
@@ -113,7 +114,7 @@ class MaliciousDomainsTaskProcessor(HSN2TaskProcessor):
             resultDict = verifier.verify(
                 domains, VerifierAbstract.DOMAIN, config)
             for key in resultDict.keys():
-                if not result.has_key(key):
+                if key not in result:
                     result[key] = MyDomainVerdict(key)
                 result[key].addSingleVerdict(
                     MySingleCheckerVerdict(verifier.getName(), resultDict[key]))
@@ -124,4 +125,4 @@ class MaliciousDomainsTaskProcessor(HSN2TaskProcessor):
         return []
 
 if __name__ == '__main__':
-    a = MaliciousDomainsTaskProcessor()
+    MaliciousDomainsTaskProcessor()
