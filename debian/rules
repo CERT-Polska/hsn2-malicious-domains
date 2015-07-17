@@ -8,4 +8,4 @@ override_dh_auto_clean:
 	dh_auto_clean
 
 override_dh_installinit:
-	dh_installinit --name=hsn2-maliciuos-domains
+	dh_installinit --name=hsn2-malicious-domains
