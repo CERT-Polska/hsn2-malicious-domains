@@ -1,7 +1,7 @@
 # Copyright (c) NASK
-# 
-# This file is part of HoneySpider Network 2.0.
-# 
+#
+# This file is part of HoneySpider Network 2.1.
+#
 # This is a free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
 # the Free Software Foundation, either version 3 of the License, or
@@ -15,18 +15,19 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-'''
-Created on Jul 12, 2012
 
-@author: pawelb
-'''
-import sys
-sys.path.append("/opt/hsn2/malicious-domains/verdict")
-from myDomainVerdict import MyDomainVerdict
+class MySingleCheckerVerdict():
+    BENIGN = "benign"
+    SUSPICIOUS = "suspicious"
+    MALICIOUS = "malicious"
+    UNKNOWN = "unknown"
 
-class MyDomainVerdicts():
-	domainVerdict = []
+    def __init__(self, name, verdict):
+        self.name = name
+        self.verdict = verdict
 
-	def __init__(self, verdict):
-		self.domainVerdict.append(verdict)
+    def getName(self):
+        return self.name
 
+    def getVerdict(self):
+        return self.verdict

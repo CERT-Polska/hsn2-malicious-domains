@@ -1,6 +1,8 @@
-# Copyright (c) NASK
+#!/usr/bin/python
+
+# Copyright (c) NASK, NCSC
 # 
-# This file is part of HoneySpider Network 2.0.
+# This file is part of HoneySpider Network 2.1.
 # 
 # This is a free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -15,26 +17,18 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-'''
-Created on Jul 12, 2012
 
-@author: pawelb
-'''
+from setuptools import setup
+from setuptools import find_packages
 
-import ConfigParser
-import logging
-
-class Config():
-	config = None
-	
-	def parseConfig(self):
-		self.config = ConfigParser.ConfigParser()
-		try:
-			ret = self.config.readfp(open("/etc/hsn2/malicious-domains.conf"))
-		except IOError:
-			logging.warn("Cannot open '/etc/hsn2/malicious-domains.conf'. Exiting...")
-			sys.exit(2)
-
-	def getConfig(self):
-		self.parseConfig()
-		return self.config
+setup(
+    name='hsn2_malicious_domains',
+    version='2.0',
+    description='HSN2 Malicious Domains - checks if domain is malicious',
+    author='CERT Polska',
+    author_email='info@cert.pl',
+    packages=find_packages(),
+    url='http://www.honeyspider.net/',
+    license='GPL-3',
+    install_requires=open('requirements.txt').read().splitlines(),
+)

@@ -1,8 +1,13 @@
-Package: hsn2-malicious-domains
-Version: {VER}
-Section: unknown
+Source: python-hsn2-malicious-domains
+Section: python
 Priority: optional
+Maintainer: CERT Polska <info@cert.pl>
+Build-Depends: debhelper (>= 8.0.0), python-all (>= 2.6.6-3), python-setuptools
+Standards-Version: 3.9.3
+X-Python-Version: >= 2.6
+
+Package: python-hsn2-malicious-domains
 Architecture: all
-Depends: python-pycurl
-Maintainer: Paweł Borkowski (pawel.borkowski@nask.pl)
+Depends: ${misc:Depends}, ${python:Depends}, python-hsn2-commons, hsn2-commons-debian
+Provides: ${python:Provides}
 Description: HSN2 Malicious Domains - checks if domain is malicious

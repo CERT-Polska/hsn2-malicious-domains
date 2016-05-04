@@ -1,0 +1,2 @@
+malicious_list /etc/hsn2/malicious-domains/
+malicious-domains.conf /etc/hsn2/

@@ -1,7 +1,7 @@
 # Copyright (c) NASK
-# 
-# This file is part of HoneySpider Network 2.0.
-# 
+#
+# This file is part of HoneySpider Network 2.1.
+#
 # This is a free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
 # the Free Software Foundation, either version 3 of the License, or
@@ -15,22 +15,10 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-'''
-Created on Jul 12, 2012
 
-@author: pawelb
-'''
+class MyDomainVerdicts():
+    domainVerdict = None
 
-class MyDomainVerdict():
-	def __init__(self, domain):
-		self.checked_domain = domain;
-		self.singleCheckerVerdict = []
-
-	def addSingleVerdict(self, mySingleCheckerVerdict):
-		self.singleCheckerVerdict.append(mySingleCheckerVerdict)
-
-	def getSingleVerdicts(self):
-		return self.singleCheckerVerdict
-
-	def getCheckedDomain(self):
-		return self.checked_domain
+    def __init__(self, verdict):
+        self.domainVerdict = []
+        self.domainVerdict.append(verdict)
